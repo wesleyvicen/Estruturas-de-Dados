@@ -5,31 +5,16 @@ import listas.ListaLigada;
 public class TesteListaLigada {
 	public static void main(String[] args) {
 		
-		ListaLigada<String> ll = new ListaLigada<String>();
+		Integer[] a = new Integer[]{2,34,1,566,123};
 		
-		ll.adicionar("d");
-		ll.adicionar("z");
-		ll.adicionar("x");
-		ll.adicionar("r");
-		ll.adicionar("y");
-		ll.adicionar("a");
-		ll.adicionar("b");
-		ll.adicionar("t");
-		ll.adicionar("c");
-		ll.adicionar("f");
-		ll.adicionar("v");
-		ll.adicionar("s");
-		ll.adicionar("u");
-		
-		
-		ll.remover("b");
-		ll.remover("c");
-		ll.remover("d");
-		ll.remover("f");
-		ll.remover("r");
-		
+		ListaLigada<String> ll = new ListaLigada<>(new String[]{"oi","aaa","zzz","palavra","string"});
 		System.out.println(ll);
-
+		ll.remover("palavra");
+		ll.adicionar("abc");
+		System.out.println(ll);
+		ListaLigada<Integer> llint = new ListaLigada<>(a);
+		llint.remover(2);
+		System.out.println(llint);
 		
 	}
 }
