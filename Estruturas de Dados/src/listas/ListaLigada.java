@@ -82,7 +82,6 @@ public class ListaLigada<T extends Comparable<T>> implements Lista<T> {
 			index++;
 			aux = aux.getNext();
 		}
-
 		return -1;
 	}
 
