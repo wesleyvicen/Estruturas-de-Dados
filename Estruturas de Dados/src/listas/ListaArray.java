@@ -37,14 +37,34 @@ public class ListaArray<T extends Comparable<T>> implements Lista<T> {
 
 	@Override
 	public boolean remover(T elemento) {
-		// TODO Auto-generated method stub
+		int i;
+		for (i = 0; i <= ultimo; i++) {
+			if (array[i].equals(elemento)) {
+				if (i == ultimo) {
+					array[ultimo] = null;
+					ultimo--;
+					return true;
+				} else {
+					while (i < ultimo) {
+						array[i] = array[i + 1];
+						i++;
+					}
+					array[i] = null;
+					ultimo--;
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 
 	@Override
-	public T get(int index) {
-		// TODO Auto-generated method stub
-		return null;
+	public T get(int index) throws ArrayIndexOutOfBoundsException {
+		if (index >= 0 && index <= ultimo) {
+			return array[index];
+		} else {
+			throw new ArrayIndexOutOfBoundsException(index);
+		}
 	}
 
 	@Override
