@@ -4,16 +4,20 @@ import listas.ListaArray;
 
 public class TesteListaArray {
 	public static void main(String[] args) {
-		ListaArray<String> la = new ListaArray<String>();
-		la.adicionar("b");
-		la.adicionar("d");
-		la.adicionar("a");
-		la.adicionar("c");
+		ListaArray<String> la = new ListaArray<String>(new String[] { "xyz", "acb", "abc", "23", "efg", "lmn" });
 		System.out.println(la);
-		System.out.println("size = " + la.size());
-		la.remover("c");
+		System.out.println(la.get(3) + " ____ " + la.indexOf(la.get(3)));
+		la.remover("efg");
 		System.out.println(la);
-		System.out.println("size = " + la.size());
+
+		for (int i = 0; i < 100; i++) {
+			la.adicionar("a" + i);
+		}
+		System.out.println(la);
+		for (int i = 0; i < 90F; i++) {
+			la.remover("a" + i);
+		}
+		System.out.println(la);
 
 	}
 }

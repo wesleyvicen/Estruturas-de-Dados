@@ -8,6 +8,14 @@ public class ListaArray<T extends Comparable<T>> implements Lista<T> {
 	int ultimo = -1;
 
 	@SuppressWarnings("unchecked")
+	public ListaArray(T[] lista) {
+		array = (T[]) new Comparable[lista.length];
+		for (T t : lista) {
+			adicionar(t);
+		}
+	}
+
+	@SuppressWarnings("unchecked")
 	public ListaArray() {
 		array = (T[]) new Comparable[10];
 	}
@@ -69,8 +77,23 @@ public class ListaArray<T extends Comparable<T>> implements Lista<T> {
 
 	@Override
 	public int indexOf(T elemento) {
-		// TODO Auto-generated method stub
-		return 0;
+		if (ultimo > -1) {
+			int inicio = 0;
+			int fim = ultimo;
+			int aux;
+			while (inicio <= fim) {
+				aux = (fim + inicio) / 2;
+
+				if (array[aux].equals(elemento)) {
+					return aux;
+				} else if (array[aux].compareTo(elemento) < 0) {
+					inicio = aux + 1;
+				} else if (array[aux].compareTo(elemento) > 0) {
+					fim = aux - 1;
+				}
+			}
+		}
+		return -1;
 	}
 
 	@Override
