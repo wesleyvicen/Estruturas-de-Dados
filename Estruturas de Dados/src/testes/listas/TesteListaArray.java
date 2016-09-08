@@ -1,4 +1,4 @@
-package testes;
+package testes.listas;
 
 import listas.ListaArray;
 
