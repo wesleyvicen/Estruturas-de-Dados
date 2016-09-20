@@ -1,18 +1,19 @@
 package pilhas;
 
+import nodes.SimpleNode;
 import tads.Pilha;
 
 public class PilhaLigada<T> implements Pilha<T> {
 
-	private Node<T> topo;
+	private SimpleNode<T> topo;
 
 	@Override
 	public void push(T elemento) {
-		Node<T> novo = new Node<T>(elemento);
+		SimpleNode<T> novo = new SimpleNode<T>(elemento);
 		if (topo == null) {
 			topo = novo;
 		} else {
-			novo.setBelow(topo);
+			novo.setNext(topo);
 			topo = novo;
 		}
 	}
@@ -23,7 +24,7 @@ public class PilhaLigada<T> implements Pilha<T> {
 			return null;
 		} else {
 			T retorno = topo.getInfo();
-			topo = topo.getBelow();
+			topo = topo.getNext();
 			return retorno;
 		}
 	}
@@ -31,10 +32,10 @@ public class PilhaLigada<T> implements Pilha<T> {
 	@Override
 	public String toString() {
 		String retorno = "";
-		Node<T> aux = topo;
+		SimpleNode<T> aux = topo;
 		while (aux != null) {
 			retorno += "\n" + aux.getInfo().toString();
-			aux = aux.getBelow();
+			aux = aux.getNext();
 		}
 		return retorno;
 	}

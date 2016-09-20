@@ -1,10 +1,11 @@
 package listas;
 
+import nodes.SimpleNode;
 import tads.Lista;
 
 public class ListaLigada<T extends Comparable<T>> implements Lista<T> {
 
-	private Node<T> primeiro;
+	private SimpleNode<T> primeiro;
 	private int size = 0;
 
 	public ListaLigada() {
@@ -19,7 +20,7 @@ public class ListaLigada<T extends Comparable<T>> implements Lista<T> {
 	@Override
 	public void adicionar(T elemento) {
 
-		Node<T> novo = new Node<T>(elemento);
+		SimpleNode<T> novo = new SimpleNode<T>(elemento);
 
 		if (vazia()) {
 			primeiro = novo;
@@ -27,7 +28,7 @@ public class ListaLigada<T extends Comparable<T>> implements Lista<T> {
 			novo.setNext(primeiro);
 			primeiro = novo;
 		} else {
-			Node<T> aux = primeiro;
+			SimpleNode<T> aux = primeiro;
 			while (aux.getNext() != null) {
 				if (aux.getNext().getInfo().compareTo(elemento) > 0) {
 					break;
@@ -43,7 +44,7 @@ public class ListaLigada<T extends Comparable<T>> implements Lista<T> {
 	@Override
 	public boolean remover(T elemento) {
 		if (!vazia()) {
-			Node<T> aux = primeiro;
+			SimpleNode<T> aux = primeiro;
 			while (aux.getNext() != null) {
 				if (aux.getNext().getInfo().equals(elemento)) {
 					aux.setNext(aux.getNext().getNext());
@@ -60,7 +61,7 @@ public class ListaLigada<T extends Comparable<T>> implements Lista<T> {
 
 	@Override
 	public T get(int index) throws IndexOutOfBoundsException {
-		Node<T> aux = primeiro;
+		SimpleNode<T> aux = primeiro;
 		for (int i = 0; i < index; i++) {
 			aux = aux.getNext();
 		}
@@ -74,7 +75,7 @@ public class ListaLigada<T extends Comparable<T>> implements Lista<T> {
 	@Override
 	public int indexOf(T elemento) {
 		int index = 0;
-		Node<T> aux = primeiro;
+		SimpleNode<T> aux = primeiro;
 		while (aux != null) {
 			if (aux.getInfo().equals(elemento)) {
 				return index;
@@ -96,7 +97,7 @@ public class ListaLigada<T extends Comparable<T>> implements Lista<T> {
 	@Override
 	public String toString() {
 		String retorno = "|";
-		Node<T> aux = primeiro;
+		SimpleNode<T> aux = primeiro;
 		while (aux != null) {
 			retorno += " -> " + aux.getInfo().toString();
 			aux = aux.getNext();
