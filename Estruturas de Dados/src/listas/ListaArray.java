@@ -112,12 +112,16 @@ public class ListaArray<T extends Comparable<T>> implements Lista<T> {
 
 	@Override
 	public String toString() {
-		String retorno = "[ ";
-		for (int i = 0; i < ultimo; i++) {
-			retorno += array[i] + ", ";
+		if (ultimo >= 0) {
+			String retorno = "[ ";
+			for (int i = 0; i < ultimo; i++) {
+				retorno += array[i] + ", ";
+			}
+			retorno += array[ultimo];
+			return retorno + " ]";
+		} else {
+			return "[]";
 		}
-		retorno += array[ultimo];
-		return retorno + " ]";
 	}
 
 }
