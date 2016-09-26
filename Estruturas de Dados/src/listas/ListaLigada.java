@@ -110,4 +110,10 @@ public class ListaLigada<T extends Comparable<T>> implements Lista<T> {
 		return size;
 	}
 
+	@Override
+	public boolean remover(int index) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

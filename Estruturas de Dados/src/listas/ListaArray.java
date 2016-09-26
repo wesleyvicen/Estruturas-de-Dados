@@ -111,6 +111,21 @@ public class ListaArray<T extends Comparable<T>> implements Lista<T> {
 	}
 
 	@Override
+	public boolean remover(int index) {
+		if (index >= 0 && index <= ultimo) {
+			for (int i = index; i < ultimo; i++) {
+				array[i] = array[i + 1];
+			}
+			array[ultimo] = null;
+			ultimo--;
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
+	@Override
 	public String toString() {
 		if (ultimo >= 0) {
 			String retorno = "[ ";

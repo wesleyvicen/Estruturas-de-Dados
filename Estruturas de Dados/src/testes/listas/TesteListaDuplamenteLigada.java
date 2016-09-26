@@ -14,5 +14,10 @@ public class TesteListaDuplamenteLigada {
 		ldp.adicionar("abc");
 		System.out.println(ldp);
 		
+		ldp.remover(3);
+		ldp.remover(1);
+		ldp.remover(2);
+		
+		System.out.println(ldp);
 	}
 }
