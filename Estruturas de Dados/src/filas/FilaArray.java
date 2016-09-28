@@ -60,6 +60,11 @@ public class FilaArray<T> implements Fila<T> {
 		}
 	}
 
+	@Override
+	public boolean isEmpty() {
+		return fim + 1 > 0 ? true : false;
+	}
+
 	private void redimensionar(int novoTamanho) {
 		Object[] novoArray = (Object[]) new Object[novoTamanho];
 		for (int i = 0; i <= fim && i < novoTamanho; i++) {

@@ -55,4 +55,9 @@ public class FilaLigada<T> implements Fila<T> {
 		return size;
 	}
 
+	@Override
+	public boolean isEmpty() {
+		return size > 0 ? true : false;
+	}
+
 }
