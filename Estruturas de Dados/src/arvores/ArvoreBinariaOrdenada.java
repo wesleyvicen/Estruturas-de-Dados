@@ -5,7 +5,12 @@ import tads.Arvore;
 
 public class ArvoreBinariaOrdenada<T extends Comparable<T>> implements Arvore<T> {
 
-	TreeBinaryNode<T> raiz;
+	public static final int EM_ORDEM = 1;
+	public static final int PRE_ORDEM = 2;
+	public static final int POS_ORDEM = 3;
+
+	private TreeBinaryNode<T> raiz;
+	int numeroElementos = 0;
 
 	@Override
 	public void adicionar(T elemento) {
@@ -20,12 +25,14 @@ public class ArvoreBinariaOrdenada<T extends Comparable<T>> implements Arvore<T>
 				} else if (elemento.compareTo(aux.getInfo()) > 0) {
 					if (aux.getRight() == null) {
 						aux.setRight(novo);
+						numeroElementos++;
 						break;
 					}
 					aux = aux.getRight();
 				} else if (elemento.compareTo(aux.getInfo()) < 0) {
 					if (aux.getLeft() == null) {
 						aux.setLeft(novo);
+						numeroElementos++;
 						break;
 					}
 					aux = aux.getLeft();
@@ -33,6 +40,47 @@ public class ArvoreBinariaOrdenada<T extends Comparable<T>> implements Arvore<T>
 			}
 		}
 
+	}
+
+	public void imprimir(int modo) {
+		switch (modo) {
+		case EM_ORDEM:
+			imprimirEmOrdem(raiz);
+			break;
+		case PRE_ORDEM:
+			imprimirPreOrdem(raiz);
+			break;
+		case POS_ORDEM:
+			imprimirPosOrdem(raiz);
+			break;
+		default:
+			System.out.println("modo invalido");
+			break;
+		}
+	}
+
+	private void imprimirEmOrdem(TreeBinaryNode<T> inicio) {
+		if (inicio != null) {
+			imprimirEmOrdem(inicio.getLeft());
+			System.out.println(inicio.getInfo());
+			imprimirEmOrdem(inicio.getRight());
+		}
+	}
+
+	private void imprimirPreOrdem(TreeBinaryNode<T> inicio) {
+		if (inicio != null) {
+			System.out.println(inicio.getInfo());
+			imprimirPreOrdem(inicio.getLeft());
+			imprimirPreOrdem(inicio.getRight());
+		}
+	}
+
+	private void imprimirPosOrdem(TreeBinaryNode<T> inicio) {
+		if (inicio != null) {
+			imprimirPosOrdem(inicio.getLeft());
+			imprimirPosOrdem(inicio.getRight());
+			System.out.println(inicio.getInfo());
+		}
 	}
 
 	@Override
