@@ -4,7 +4,7 @@ import pilhas.PilhaArray;
 
 public class TestePilhaArray {
 	public static void main(String[] args) {
-
+ 
 		PilhaArray<String> pa = new PilhaArray<String>();
 		pa.push("aaa");
 		pa.push("123");
