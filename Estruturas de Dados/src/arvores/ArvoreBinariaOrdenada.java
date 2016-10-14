@@ -4,11 +4,11 @@ import nodes.TreeBinaryNode;
 import tads.Arvore;
 
 public class ArvoreBinariaOrdenada<T extends Comparable<T>> implements Arvore<T> {
-
+ 
 	public static final int EM_ORDEM = 1;
 	public static final int PRE_ORDEM = 2;
 	public static final int POS_ORDEM = 3;
-
+  
 	private TreeBinaryNode<T> raiz;
 	int numeroElementos = 0;
 
