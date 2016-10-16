@@ -21,9 +21,17 @@ public class TesteArvoreBinariaOrdenada {
 		abo.adicionar(42);
 		abo.adicionar(51);
 		abo.adicionar(11);
+
+		System.out.println(abo.remover(123));
+		System.out.println(abo.remover(789));
+		System.out.println(abo.remover(10));
+		System.out.println(abo.remover(51));
+		System.out.println(abo.remover(30));
+		System.out.println(abo.remover(567));
+
 		
 		abo.imprimir(ArvoreBinariaOrdenada.EM_ORDEM);
-		
+
 	}
 
 }
