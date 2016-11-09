@@ -12,4 +12,6 @@ public interface TabelaHash<K, V> {
 
 	public void reHash();
 
+	public boolean contem(K chave);
+
 }
