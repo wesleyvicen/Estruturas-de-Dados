@@ -1,6 +1,6 @@
 package listas;
 
-import tads.Lista;
+import testes.listas.Lista;
 
 public class ListaArray<T extends Comparable<T>> implements Lista<T> {
 

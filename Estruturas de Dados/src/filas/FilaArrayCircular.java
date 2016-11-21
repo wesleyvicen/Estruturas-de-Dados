@@ -1,6 +1,6 @@
 package filas;
 
-import tads.Fila;
+import testes.filas.Fila;
 
 public class FilaArrayCircular<T> implements Fila<T> {
 

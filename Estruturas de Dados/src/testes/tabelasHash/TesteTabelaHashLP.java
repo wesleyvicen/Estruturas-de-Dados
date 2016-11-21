@@ -1,7 +1,6 @@
 package testes.tabelasHash;
 
 import tabelasHash.TabelaHashLP;
-import tads.TabelaHash;
 
 public class TesteTabelaHashLP {
 

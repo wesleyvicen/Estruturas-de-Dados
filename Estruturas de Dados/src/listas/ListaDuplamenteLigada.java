@@ -2,7 +2,7 @@ package listas;
 
 import nodes.DoublyLinkedNode;
 import nodes.SimpleNode;
-import tads.Lista;
+import testes.listas.Lista;
 
 public class ListaDuplamenteLigada<T extends Comparable<T>> implements Lista<T> {
 

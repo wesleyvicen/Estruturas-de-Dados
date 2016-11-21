@@ -1,7 +1,7 @@
 package pilhas;
 
 import nodes.SimpleNode;
-import tads.Pilha;
+import testes.pilhas.Pilha;
 
 public class PilhaLigada<T> implements Pilha<T> {
 

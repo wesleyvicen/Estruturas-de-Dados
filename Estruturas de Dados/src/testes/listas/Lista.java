@@ -1,4 +1,4 @@
-package tads;
+package testes.listas;
 
 public interface Lista <T extends Comparable<T>>{
 	

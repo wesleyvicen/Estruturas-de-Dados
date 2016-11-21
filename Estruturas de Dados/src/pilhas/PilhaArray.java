@@ -1,6 +1,6 @@
 package pilhas;
 
-import tads.Pilha;
+import testes.pilhas.Pilha;
 
 public class PilhaArray<T> implements Pilha<T> {
 

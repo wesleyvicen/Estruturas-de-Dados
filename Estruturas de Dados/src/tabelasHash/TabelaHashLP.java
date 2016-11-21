@@ -2,7 +2,7 @@ package tabelasHash;
 
 import java.math.BigInteger;
 
-import tads.TabelaHash;
+import testes.tabelasHash.TabelaHash;
 
 public class TabelaHashLP<K, V> implements TabelaHash<K, V> {
 

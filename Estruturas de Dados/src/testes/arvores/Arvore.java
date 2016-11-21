@@ -1,4 +1,4 @@
-package tads;
+package testes.arvores;
 
 public interface Arvore<T> {
 	

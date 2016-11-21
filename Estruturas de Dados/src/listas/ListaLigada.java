@@ -1,7 +1,7 @@
 package listas;
 
 import nodes.SimpleNode;
-import tads.Lista;
+import testes.listas.Lista;
 
 public class ListaLigada<T extends Comparable<T>> implements Lista<T> {
 

@@ -3,7 +3,7 @@ package arvores;
 import java.security.InvalidParameterException;
 
 import nodes.TreeBinaryNode;
-import tads.Arvore;
+import testes.arvores.Arvore;
 
 public class ArvoreBinariaOrdenada<T extends Comparable<T>> implements Arvore<T> {
 

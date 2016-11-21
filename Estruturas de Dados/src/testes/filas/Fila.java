@@ -1,4 +1,4 @@
-package tads;
+package testes.filas;
 
 public interface Fila<T> {
 	

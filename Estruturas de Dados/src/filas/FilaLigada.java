@@ -1,7 +1,7 @@
 package filas;
 
 import nodes.SimpleNode;
-import tads.Fila;
+import testes.filas.Fila;
 
 public class FilaLigada<T> implements Fila<T> {
 

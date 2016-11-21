@@ -1,4 +1,4 @@
-package tads;
+package testes.pilhas;
 
 public interface Pilha<T> {
 
