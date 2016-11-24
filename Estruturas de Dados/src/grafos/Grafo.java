@@ -6,6 +6,8 @@ public interface Grafo<T> {
 
 	int numeroVertices();
 
+	int numeroArestas();
+
 	int grauNegativo(Vertice<T> vertice);
 
 	int grauPositivo(Vertice<T> vertice);
@@ -20,7 +22,7 @@ public interface Grafo<T> {
 
 	boolean existeAresta(Vertice<T> origem, Vertice<T> destino);
 
-	List<Vertice<T>> adjacentes(Vertice<T> origem);
+	List<?> adjacentes(Vertice<T> origem);
 
-	List<Vertice<T>> incidentes(Vertice<T> destino);
+	List<?> incidentes(Vertice<T> destino);
 }
