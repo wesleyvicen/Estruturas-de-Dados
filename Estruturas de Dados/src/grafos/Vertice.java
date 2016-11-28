@@ -40,4 +40,9 @@ public class Vertice<T> {
 		return info.hashCode();
 	}
 
+	@Override
+	public String toString() {
+		return info.toString();
+	}
+
 }

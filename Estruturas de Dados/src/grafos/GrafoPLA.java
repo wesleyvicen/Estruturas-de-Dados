@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Queue;
+
+import filas.FilaArray;
+import testes.filas.Fila;
+import testes.listas.Lista;
 
 public class GrafoPLA<T> implements GrafoPonderado<T> {
 
@@ -90,6 +95,53 @@ public class GrafoPLA<T> implements GrafoPonderado<T> {
 				numeroArestas += list.size();
 		}
 		return numeroArestas;
+	}
+
+	@Override
+	public List<ParVerticePeso<T>> breadthSearch(Vertice<T> origem, Vertice<T> destino) {
+		resetVisited();
+		Fila<Vertice<T>> fila = new FilaArray<Vertice<T>>();
+		List<ParVerticePeso<T>> descobertas = new ArrayList<ParVerticePeso<T>>();
+		List<ParVerticePeso<T>> aux;
+		boolean buscandoVertice = destino != null;
+		if (origem != null) {
+			fila.enqueue(origem);
+			descobertas.add(new ParVerticePeso<>(0, origem));
+			origem.setVisitado(true);
+		}
+		while (!fila.isEmpty()) {
+			aux = vertices.get(fila.dequeue());
+			if (buscandoVertice && aux.contains(new ParVerticePeso<T>(0, destino))) {
+				descobertas.add(new ParVerticePeso<>(0, destino));
+				destino.setVisitado(true);
+				break;
+			}
+			for (ParVerticePeso<T> par : aux) {
+				if (!par.getVertice().isVisitado()) {
+					par.setVisitado(true);
+					descobertas.add(par);
+					fila.enqueue(par.getVertice());
+				}
+			}
+		}
+		return descobertas;
+	}
+
+	private void resetVisited() {
+		Collection<Vertice<T>> aux = vertices.keySet();
+		for (Vertice<T> vertice : aux) {
+			vertice.setVisitado(false);
+		}
+	}
+
+	@Override
+	public String toString() {
+		Collection<Vertice<T>> listaVertices = vertices.keySet();
+		String retorno = "";
+		for (Vertice<T> vertice : listaVertices) {
+			retorno += vertice + " -> " + vertices.get(vertice) + "\n";
+		}
+		return retorno;
 	}
 
 }

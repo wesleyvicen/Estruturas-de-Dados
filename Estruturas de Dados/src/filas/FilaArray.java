@@ -62,7 +62,7 @@ public class FilaArray<T> implements Fila<T> {
 
 	@Override
 	public boolean isEmpty() {
-		return fim + 1 > 0 ? true : false;
+		return fim < 0 ? true : false;
 	}
 
 	private void redimensionar(int novoTamanho) {

@@ -9,4 +9,6 @@ public interface GrafoPonderado<T> extends Grafo<T> {
 
 	List<ParVerticePeso<T>> incidentes(Vertice<T> destino);
 
+	List<ParVerticePeso<T>> breadthSearch(Vertice<T> origem, Vertice<T> destino);
+
 }

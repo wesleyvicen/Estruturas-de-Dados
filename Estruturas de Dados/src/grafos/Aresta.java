@@ -4,7 +4,8 @@ public class Aresta<T> {
 	private Vertice<T> origem;
 	private Vertice<T> destino;
 	private double peso;
-
+	private boolean deDescoberta;
+	
 	public Aresta() {
 	}
 
@@ -41,6 +42,14 @@ public class Aresta<T> {
 
 	public void setPeso(double peso) {
 		this.peso = peso;
+	}
+
+	public boolean isDeDescoberta() {
+		return deDescoberta;
+	}
+
+	public void setDeDescoberta(boolean deDescoberta) {
+		this.deDescoberta = deDescoberta;
 	}
 
 	@Override
