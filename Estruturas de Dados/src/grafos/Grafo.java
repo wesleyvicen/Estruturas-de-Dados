@@ -8,9 +8,11 @@ public interface Grafo<T> {
 
 	int numeroArestas();
 
-	int grauNegativo(Vertice<T> vertice);
-
+	// numero de incidentes
 	int grauPositivo(Vertice<T> vertice);
+
+	// numero de adjacentes
+	int grauNegativo(Vertice<T> vertice);
 
 	void inserirVertice(Vertice<T> vertice);
 
