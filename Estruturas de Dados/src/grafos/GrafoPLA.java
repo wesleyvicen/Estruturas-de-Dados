@@ -105,6 +105,16 @@ public class GrafoPLA<T> implements GrafoPonderado<T> {
 		return numeroArestas;
 	}
 
+	private void simplificaCaminho(List<ParVerticePeso<T>> caminho){
+		Vertice<T> v;
+		for (int i = 0; i < caminho.size(); i++) {
+			v = caminho.get(i).getVertice();
+			for (int j = i+2; j < caminho.size(); j++) {
+//				if(existeAresta(v, ))
+			}
+		}
+	}
+
 	@Override
 	public List<ParVerticePeso<T>> breadthSearch(Vertice<T> origem, Vertice<T> destino) {
 		resetVisited();
@@ -125,7 +135,7 @@ public class GrafoPLA<T> implements GrafoPonderado<T> {
 				break;
 			}
 			for (ParVerticePeso<T> par : aux) {
-				if (!par.getVertice().isVisitado()&&!existeAresta(descobertas.get(descobertas.size()-1).getVertice(),par.getVertice())) {
+				if (!par.getVertice().isVisitado()) {
 					par.setVisitado(true);
 					descobertas.add(par);
 					fila.enqueue(par.getVertice());
@@ -138,6 +148,7 @@ public class GrafoPLA<T> implements GrafoPonderado<T> {
 				break;
 			}
 		}
+		simplificaCaminho(descobertas);
 		return descobertas;
 	}
 
