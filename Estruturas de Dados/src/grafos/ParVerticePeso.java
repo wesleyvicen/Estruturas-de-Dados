@@ -25,4 +25,24 @@ public class ParVerticePeso<T> {
 		this.peso = peso;
 	}
 
+	public boolean isVisitado() {
+		return vertice.isVisitado();
+	}
+
+	public void setVisitado(boolean visitado) {
+		vertice.setVisitado(visitado);
+	}
+
+	@Override
+	public String toString() {
+		return "(" + peso + "/" + vertice + ")";
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof ParVerticePeso)
+			return vertice.equals(((ParVerticePeso) obj).getVertice());
+		return false;
+	}
+
 }

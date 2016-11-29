@@ -27,4 +27,6 @@ public interface Grafo<T> {
 	List<?> adjacentes(Vertice<T> origem);
 
 	List<?> incidentes(Vertice<T> destino);
+	
+	List<?> breadthSearch(Vertice<T> origem, Vertice<T> destino);
 }
