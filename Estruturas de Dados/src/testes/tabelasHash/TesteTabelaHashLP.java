@@ -1,5 +1,6 @@
 package testes.tabelasHash;
 
+import tabelasHash.TabelaHash;
 import tabelasHash.TabelaHashLP;
 
 public class TesteTabelaHashLP {

@@ -1,4 +1,4 @@
-package testes.tabelasHash;
+package tabelasHash;
 
 import java.util.HashMap;
 

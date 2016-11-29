@@ -1,8 +1,6 @@
-package tabelasHash;
+ package tabelasHash;
 
 import java.math.BigInteger;
-
-import testes.tabelasHash.TabelaHash;
 
 public class TabelaHashLP<K, V> implements TabelaHash<K, V> {
 
