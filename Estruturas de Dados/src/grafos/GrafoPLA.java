@@ -3,8 +3,10 @@ package grafos;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Queue;
+import java.util.Set;
 
 import filas.FilaArray;
 import testes.filas.Fila;
@@ -72,8 +74,7 @@ public class GrafoPLA<T> implements GrafoPonderado<T> {
 
 	@Override
 	public boolean existeAresta(Vertice<T> origem, Vertice<T> destino) {
-		// TODO Auto-generated method stub
-		return false;
+		return vertices.get(origem).contains(destino);
 	}
 
 	@Override
@@ -83,7 +84,14 @@ public class GrafoPLA<T> implements GrafoPonderado<T> {
 
 	@Override
 	public List<ParVerticePeso<T>> incidentes(Vertice<T> destino) {
-		return null;
+		List<ParVerticePeso<T>> retorno = new ArrayList<ParVerticePeso<T>>();
+		Set<Vertice<T>> lista = vertices.keySet();
+		for (Vertice<T> vertice : lista) {
+			if (vertices.get(vertice).contains(destino)) {
+				retorno.add(new ParVerticePeso<T>(0.0, vertice));
+			}
+		}
+		return retorno;
 	}
 
 	@Override
@@ -117,14 +125,60 @@ public class GrafoPLA<T> implements GrafoPonderado<T> {
 				break;
 			}
 			for (ParVerticePeso<T> par : aux) {
-				if (!par.getVertice().isVisitado()) {
+				if (!par.getVertice().isVisitado()&&!existeAresta(descobertas.get(descobertas.size()-1).getVertice(),par.getVertice())) {
 					par.setVisitado(true);
 					descobertas.add(par);
 					fila.enqueue(par.getVertice());
 				}
 			}
 		}
+		for (int i = 0; i < descobertas.size(); i++) {
+			if (buscandoVertice && vertices.get(descobertas.get(i).getVertice()).contains(destino)) {
+				descobertas.removeAll(descobertas.subList(i, descobertas.size() - 1));
+				break;
+			}
+		}
 		return descobertas;
+	}
+
+	public List<Vertice<T>> parToVertice(List<ParVerticePeso<T>> vertice) {
+		List<Vertice<T>> retorno = new ArrayList<Vertice<T>>();
+		int i = 0;
+		while (i < vertice.size()) {
+			retorno.add(vertice.get(i).getVertice());
+			i++;
+		}
+		return retorno;
+	}
+
+	public String buscaLargura(Vertice<T> origem, Vertice<T> destino) {
+		resetVisited();
+		Fila<Vertice<T>> fila = new FilaArray<Vertice<T>>();
+		String retorno = origem.toString() + "->";
+		Iterator<Vertice<T>> vertices;
+		Vertice<T> daVez = origem;
+		Vertice<T> v;
+		boolean found = false;
+		fila.enqueue(daVez);
+		while (!fila.isEmpty()) {
+			daVez = fila.dequeue();
+			vertices = parToVertice(adjacentes(daVez)).iterator();
+			while (vertices.hasNext()) {
+				v = vertices.next();
+				if (!v.isVisitado()) {
+					if (v.equals(destino)) {
+						found = true;
+						break;
+					}
+					retorno += v.toString() + "->";
+					v.setVisitado(true);
+					fila.enqueue(v);
+				}
+			}
+			if (found)
+				break;
+		}
+		return retorno + destino.toString();
 	}
 
 	private void resetVisited() {
