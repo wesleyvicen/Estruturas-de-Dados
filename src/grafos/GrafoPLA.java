@@ -111,7 +111,7 @@ public class GrafoPLA<T> implements GrafoPonderado<T> {
 			v = caminho.get(i).getVertice();
 			for (int j = i + 2; j < caminho.size(); j++) {
 				if (existeAresta(v, caminho.get(j).getVertice())) {
-					caminho.removeAll(caminho.subList(i+1, 	j));
+					caminho.removeAll(caminho.subList(i + 1, j));
 				}
 			}
 		}
@@ -148,6 +148,11 @@ public class GrafoPLA<T> implements GrafoPonderado<T> {
 			if (buscandoVertice && vertices.get(descobertas.get(i).getVertice()).contains(destino)) {
 				descobertas.removeAll(descobertas.subList(i, descobertas.size() - 1));
 				break;
+			}
+		}
+		for (int i = descobertas.size() - 2; i > 1; i--) {
+			if (!existeAresta(descobertas.get(i - 1).getVertice(), descobertas.get(i).getVertice())) {
+				descobertas.remove(i - 1);
 			}
 		}
 		simplificaCaminho(descobertas);
