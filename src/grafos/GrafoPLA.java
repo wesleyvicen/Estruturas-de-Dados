@@ -74,7 +74,7 @@ public class GrafoPLA<T> implements GrafoPonderado<T> {
 
 	@Override
 	public boolean existeAresta(Vertice<T> origem, Vertice<T> destino) {
-		return vertices.get(origem).contains(destino);
+		return vertices.get(origem).contains(new ParVerticePeso<T>(0, destino));
 	}
 
 	@Override
@@ -105,12 +105,14 @@ public class GrafoPLA<T> implements GrafoPonderado<T> {
 		return numeroArestas;
 	}
 
-	private void simplificaCaminho(List<ParVerticePeso<T>> caminho){
+	private void simplificaCaminho(List<ParVerticePeso<T>> caminho) {
 		Vertice<T> v;
 		for (int i = 0; i < caminho.size(); i++) {
 			v = caminho.get(i).getVertice();
-			for (int j = i+2; j < caminho.size(); j++) {
-//				if(existeAresta(v, ))
+			for (int j = i + 2; j < caminho.size(); j++) {
+				if (existeAresta(v, caminho.get(j).getVertice())) {
+					caminho.removeAll(caminho.subList(i+1, 	j));
+				}
 			}
 		}
 	}

@@ -29,12 +29,11 @@ public class TesteGrafoPLA {
 		gpla.inserirAresta(v2, v4);
 		gpla.inserirAresta(v3, v5);
 		gpla.inserirAresta(v5, v6);
-		
+
 		System.out.println(gpla);
-		
+
 		System.out.println(gpla.breadthSearch(v1, v6));
 		System.out.println(gpla.buscaLargura(v1, v6));
 
-		
 	}
 }
