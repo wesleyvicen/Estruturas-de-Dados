@@ -51,6 +51,30 @@ public class Ordenador<T> {
 
 	}
 
+	private static <T extends Comparable<T>> void quickSort(List<T> lista, int left, int right) {
+		if (left >= right)
+			return;
+		int k = particiona(lista, left, right);
+		quickSort(lista, left, k - 1);
+		quickSort(lista, k + 1, right);
+	}
+
+	private static <T extends Comparable<T>> int particiona(List<T> lista, int left, int right) {
+		int indexPivo = right--;
+		T pivo = lista.get(indexPivo);
+		while (true) {
+			while (lista.get(left).compareTo(pivo) < 0)
+				left++;
+			while (right >= 0 && lista.get(right).compareTo(pivo) > 0)
+				right--;
+			if (left >= right)
+				break;
+			trocar(left, right, lista);
+		}
+		trocar(left, indexPivo, lista);
+		return left;
+	}
+
 	public static <T extends Comparable<T>> void bubbleSort(List<T> lista) {
 		for (int i = lista.size() - 1; i > 0; i--) {
 			for (int j = 0; j < i; j++) {
@@ -68,6 +92,10 @@ public class Ordenador<T> {
 
 	public static <T extends Comparable<T>> void mergeSort(List<T> lista) {
 		mergeSort(lista, 0, lista.size() - 1);
+	}
+
+	public static <T extends Comparable<T>> void quickSort(List<T> lista) {
+		quickSort(lista, 0, lista.size() - 1);
 	}
 
 }

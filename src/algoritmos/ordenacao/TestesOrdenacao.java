@@ -14,7 +14,7 @@ public class TestesOrdenacao {
 			lista.add(ran.nextInt(100));
 		}
 		System.out.println(lista);
-		Ordenador.mergeSort(lista);
+		Ordenador.quickSort(lista);
 		System.out.println(lista);
 	}
 }
