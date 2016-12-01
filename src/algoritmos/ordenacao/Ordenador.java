@@ -1,4 +1,4 @@
-package algoritmosOrdenacao;
+package algoritmos.ordenacao;
 
 import java.util.ArrayList;
 import java.util.List;
