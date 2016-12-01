@@ -1,8 +1,6 @@
 package algoritmos.ordenacao;
 
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
