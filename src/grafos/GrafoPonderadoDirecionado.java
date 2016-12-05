@@ -2,7 +2,7 @@ package grafos;
 
 import java.util.List;
 
-public interface GrafoPonderado<T> extends GrafoDirecionado<T> {
+public interface GrafoPonderadoDirecionado<T> extends GrafoDirecionado<T> {
 	void inserirAresta(Vertice<T> origem, Vertice<T> destino, double peso);
 
 	List<ParVerticePeso<T>> adjacentes(Vertice<T> origem);

@@ -12,11 +12,11 @@ import filas.FilaArray;
 import testes.filas.Fila;
 import testes.listas.Lista;
 
-public class GrafoPLA<T> implements GrafoPonderado<T> {
+public class GrafoDPLA<T> implements GrafoPonderadoDirecionado<T> {
 
 	private HashMap<Vertice<T>, List<ParVerticePeso<T>>> vertices;
 
-	public GrafoPLA() {
+	public GrafoDPLA() {
 		vertices = new HashMap<Vertice<T>, List<ParVerticePeso<T>>>();
 	}
 
