@@ -1,4 +1,7 @@
-package grafos;
+package testes.grafos;
+
+import grafos.GrafoMA;
+import grafos.Vertice;
 
 public class TesŧeGrafoMA {
 	public static void main(String[] args) {
